@@ -1,0 +1,89 @@
+﻿@model PersonelYonetimSistemi.Common.VModels.PersonelIsEmirleriVm
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var resimPath = "~/CustomResim/" + Model.ResimPathText;
+}
+
+<div style="text-align:center" class="alert alert-primary" role="alert">
+    İş Emrini Düzenleyin
+</div>
+<div class="col-md-6">
+    <form class="form-horizontal" asp-action="Edit">
+        @Html.HiddenFor(x => x.Id)
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="IsEmriPuan">İş Emri Puanı</label>
+            <input asp-for="IsEmriPuan" type="text" class="form-control" id="exampleInputEmail1" min="0" max="20" placeholder="İş Emri Puanı" aria-describedby="emailHelp">
+            <span asp-validation-for="IsEmriPuan"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsEmriAciklamasi">İş Emri Açıklaması</label>
+            <div class="input-group">
+                <textarea asp-for="IsEmriAciklamasi" class="form-control limited" id="exampleFormControlTextarea1" rows="3" maxlength="10000"></textarea>
+            </div>
+            <span asp-validation-for="IsEmriAciklamasi"></span>
+            @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        </div>
+        <div class="form-group">
+            <label asp-for="PersonelIsAtamaId">İş Emri Atanan Kişi</label>
+            <div>
+                @Html.DropDownListFor(p => p.PersonelIsAtamaId, new SelectList(ViewBag.PersonelList, "Id", "UserName"), "Personel Seçiniz", new { @class = "form-control" })
+            </div>
+            <span asp-validation-for="PersonelIsAtamaId"></span>
+            @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="IsEmriDurumu" for="exampleFormControlSelect1">İş Emri Durumu</label>
+            <select class="form-control" data-live-search="true" id="exampleFormControlSelect1" asp-for="IsEmriDurumu">
+                <option asp-for="IsEmriDurumu">İş Emri Oluşturuldu</option>
+                <option asp-for="IsEmriDurumu">İş Atandı</option>
+                <option asp-for="IsEmriDurumu" >İş Üstlenildi</option>
+                <option asp-for="IsEmriDurumu">İş Kapatıldı</option>
+            </select>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="IsEmriDurumu">İş Emri Durumu</label>
+            <div>
+                <select class="form-control" asp-for="IsEmriDurumu">
+                    <option value="1">İş Emri Oluşturuldu</option>
+                    <option value="2">Atandı</option>
+                    <option value="3">Üstlenildi</option>
+                    <option value="4">Kapatıldı</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Resim Önizleme</label>
+            <div class="col-md-6">
+                <img class="card-img-top" style="width:200px;height:100px;" src="@resimPath" asp-append-version="true" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary col-xl-3 mt-3">İş Emri Güncelle</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
+<script src="~/js/jquery.inputlimiter.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.example').datepicker({
+            dateFormat: "dd/mm/yyyy",
+            autoclose: true,
+            todayHighlight: true
+        });
+        $('textarea.limited').inputlimiter({
+            remText: '%n Karakter Kaldı...',
+            limitText: 'En Fazla %n Karakter Kullanılabilir.'
+        });
+    });
+
+
+</script>
+
+
+

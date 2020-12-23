@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<PersonelYonetimSistemi.Data.Models.Personels> SignInManager
+@inject UserManager<PersonelYonetimSistemi.Data.Models.Personels> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @if (User.IsInRole(PersonelYonetimSistemi.Common.ResultMesajlari.ResultMesajlari.AdminRole))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user-tie fa-1x"></i>Hoşgeldiniz @User.Identity.Name</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fas fa-user fa-1x"></i>@await Component.InvokeAsync("UserName")</a>
+        </li>
+    }
+
+    <div class="topbar-divider d-none d-sm-block"></div>
+    <li class="nav-item">
+        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link text-dark"><i class="fas fa-user-slash fa-1x"></i>Çıkış Yap</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-user-plus fa-1x"></i>Kayıt Ol</a>
+    </li>
+    <div class="topbar-divider d-none d-sm-block"></div>
+    <li class="nav-item">
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login"><i class="fas fa-user-check fa-1x"></i>Giriş Yap</a>
+    </li>
+}

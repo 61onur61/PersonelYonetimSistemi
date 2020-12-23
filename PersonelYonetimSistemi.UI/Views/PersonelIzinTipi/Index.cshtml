@@ -1,0 +1,123 @@
+﻿@model IEnumerable<PersonelYonetimSistemi.Common.VModels.PersonelIzinTipiVM>
+@{
+    ViewData["Title"] = "PersonelIzinTipiView";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<head>
+    <style>
+        .ortala {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<!-- Page Heading -->
+<h1 style="text-align:center" class="h3 mb-3 text-gray-800">Personel İzin Tipi Listesi</h1>
+<div class="card shadow mb-4">
+    @*<div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>*@
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr class="ortala">
+                        <th>İzin Adı</th>
+                        <th>İzin Gün Sayısı</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Güncelle</th>
+                        <th>Detaylar</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr class="ortala">
+                        <th>İzin Adı</th>
+                        <th>İzin Gün Sayısı</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Güncelle</th>
+                        <th>Detaylar</th>
+                        <th>Sil</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="ortala">@item.Ad</td>
+                            <td class="ortala">@item.GunSayisi</td>
+                            <td class="ortala">@item.OlusturulmaTarihi</td>
+                            <td>
+                                <a style="margin-left:41%;" asp-controller="PersonelIzinTipi" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-circle">
+                                    <i class="fas fa-check"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a style="margin-left:41%;" asp-controller="PersonelIzinTipi" asp-action="Details" class="btn btn-info btn-circle">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger btn-circle btnRemove" style="color:white;margin-left:36%" data-id="@item.Id">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <a asp-controller="PersonelIzinTipi" asp-action="Create" class="btn btn-primary btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span class="text">İzin Tipi Ekle</span>
+            </a>
+        </div>
+    </div>
+</div>
+@*<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>*@
+@*<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>*@
+@*<script src="~/astyle/vendor/jquery-easing/jquery.easing.min.js"></script>*@
+
+<script src="~/astyle/vendor/jquery/jquery.min.js"></script>
+
+@section Scripts{
+    <script type="text/javascript">
+        function Yenile() {
+            location.reload();
+        }
+        $(document).ready(function () {
+            $(".btnRemove").on("click", function () {
+                var id = $(this).data("id");
+                swal({
+                    title: 'Silmek İstediğinize Emin Misiniz?',
+                    text: 'Silinen Veri Geri Alınamaz!',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true,
+                    buttons: ['İptal', 'Tamam']
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: "/PersonelIzinTipi/Delete/" + id,
+                            success: function (data) {
+                                if (data.success) {
+                                    toastr.success(data.message);
+                                    setTimeout(Yenile, 3000);
+                                } else {
+                                    alert('error');
+                                    toastr.error(data.message);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+}

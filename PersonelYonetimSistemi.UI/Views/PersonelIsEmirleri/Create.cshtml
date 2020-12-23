@@ -1,0 +1,61 @@
+﻿@model PersonelYonetimSistemi.Common.VModels.PersonelIsEmirleriVm
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div style="text-align:center" class="alert alert-primary" role="alert">
+    İş Emri Oluşturun...
+</div>
+<div class="col-md-6">
+    <form class="form-horizontal" asp-action="Create" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="ResimPath" for="exampleFormControlFile1">Fotoğraf Ekleyin</label>
+            <input asp-for="ResimPath" type="file" class="form-control form-control-file btn btn-primary" id="exampleFormControlFile1" placeholder="Fotoğraf Seçiniz">
+            <span asp-validation-for="ResimPath"></span>
+        </div>
+        @*<div class="form-group">
+            <label asp-for="ResimPath">Fotoğraf</label>
+            <input asp-for="ResimPath" class="form-control custom-file-input" id="exampleInputEmail1" placeholder="Fotoğraf Seçiniz">
+            <label class="custom-file-label"></label>
+            <span asp-validation-for="ResimPath">Fotoğraf Seçin</span>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="IsEmriPuan">İş Emri Puanı</label>
+            <input asp-for="IsEmriPuan" type="text" class="form-control" id="exampleInputEmail1" min="0" max="20" placeholder="İş Emri Puanı" aria-describedby="emailHelp">
+            <span asp-validation-for="IsEmriPuan"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsEmriAciklamasi">İş Emri Açıklaması</label>
+            <div class="input-group">
+                <textarea asp-for="IsEmriAciklamasi" class="form-control limited" id="exampleFormControlTextarea1" rows="3" maxlength="10000"></textarea>
+            </div>
+            <span asp-validation-for="IsEmriAciklamasi"></span>
+            @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        </div>
+        <button type="submit" id="btnCreate" class="btn btn-primary col-xl-3 mt-3">İş Emri Oluştur</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
+<script src="~/js/jquery.inputlimiter.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.example').datepicker({
+            dateFormat: "dd/mm/yyyy",
+            autoclose: true,
+            todayHighlight: true
+        });
+        $('textarea.limited').inputlimiter({
+            remText: '%n Karakter Kaldı...',
+            limitText: 'En Fazla %n Karakter Kullanılabilir.'
+        });
+    });
+
+
+</script>
+

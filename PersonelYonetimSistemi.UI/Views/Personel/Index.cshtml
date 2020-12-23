@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<head>
+    <style>
+        .ortala {
+            text-align: center;
+        }
+    </style>
+</head>
+<!-- Page Heading -->
+<h1 class="h3 mb-3 text-gray-800 ortala">Personel İş listesi</h1>
+<div class="form-group row">
+    @await Component.InvokeAsync("AtanmisIsEmirleri")
+    @await Component.InvokeAsync("UstlenilmisIsEmirleri")
+    @await Component.InvokeAsync("KapatilmisIsEmirleri")
+</div>
+
+
+
+
+
+

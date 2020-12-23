@@ -1,0 +1,48 @@
+﻿@model IEnumerable<PersonelYonetimSistemi.Common.VModels.PersonelIsEmirleriVm>
+
+<div class="col-md-4">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 ortala">
+            <h6 class="m-0 font-weight-bold text-primary">Üstelenilmiş İşler</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr class="ortala">
+                            <th>Kullanıcı Adı</th>
+                            <th>İş Emri No</th>
+                            <th>Puan</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr class="ortala">
+                            <th>Kullanıcı Adı</th>
+                            <th>İş Emri No</th>
+                            <th>Puan</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="ortala">@item.PersonelIsAtamaAdi</td>
+                                <td class="ortala"><a asp-controller="PersonelIsEmirleri" asp-action="PersonelIsEmirleriDetail" asp-route-id="@item.Id">@item.IsEmriNumara</a></td>
+                                <td class="ortala">@item.IsEmriPuan</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<script src="~/astyle/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="~/astyle/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script src="~/astyle/vendor/chart.js/datatables-demo.js"></script>*@
+
+<script src="~/astyle/vendor/jquery/jquery.min.js"></script>

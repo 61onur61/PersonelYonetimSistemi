@@ -1,0 +1,13 @@
+﻿@model IEnumerable<PersonelYonetimSistemi.Common.VModels.PersonelVM>
+
+
+@*<select class="form-control col-md-3 personeller">
+        <option>Personel Seçin</option>
+        @foreach (var item in Model)
+        {
+            <option data-id="@item.Id">@item.Ad  @item.Soyad</option>
+        }
+    </select>*@
+
+@Html.DropDownList("PersonelIsAtamaId", new SelectList(ViewBag.personeller, "Id","UserName", "Seçiniz"),
+        new { @class = "form-control col-md-3", id = "PersonelIsAtamaId" })

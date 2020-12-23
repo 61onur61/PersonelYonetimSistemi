@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelYonetimSistemi.UI", "PersonelYonetimSistemi.UI\PersonelYonetimSistemi.UI.csproj", "{D2F30A24-A617-487A-9005-E6036A4B9047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelYonetimSistemi.Data", "PersonelYonetimSistemi.Data\PersonelYonetimSistemi.Data.csproj", "{8DE692E5-497C-40FF-BDAC-370B9966B21F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelYonetimSistemi.Business", "PersonelYonetimSistemi.Business\PersonelYonetimSistemi.Business.csproj", "{DAE28FB2-24F9-4486-8647-A6E480749008}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonelYonetimSistemi.Common", "PersonelYonetimSistemi.Common\PersonelYonetimSistemi.Common.csproj", "{C462C114-CB45-412B-B9A9-CEEF983A9A16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2F30A24-A617-487A-9005-E6036A4B9047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F30A24-A617-487A-9005-E6036A4B9047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F30A24-A617-487A-9005-E6036A4B9047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F30A24-A617-487A-9005-E6036A4B9047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE692E5-497C-40FF-BDAC-370B9966B21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE692E5-497C-40FF-BDAC-370B9966B21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE692E5-497C-40FF-BDAC-370B9966B21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE692E5-497C-40FF-BDAC-370B9966B21F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE28FB2-24F9-4486-8647-A6E480749008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE28FB2-24F9-4486-8647-A6E480749008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE28FB2-24F9-4486-8647-A6E480749008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE28FB2-24F9-4486-8647-A6E480749008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C462C114-CB45-412B-B9A9-CEEF983A9A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C462C114-CB45-412B-B9A9-CEEF983A9A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C462C114-CB45-412B-B9A9-CEEF983A9A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C462C114-CB45-412B-B9A9-CEEF983A9A16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88B86ADE-EAAF-48B4-8126-BB3FE08F9DD4}
+	EndGlobalSection
+EndGlobal

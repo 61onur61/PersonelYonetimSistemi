@@ -1,0 +1,40 @@
+﻿@model PersonelYonetimSistemi.Common.VModels.PersonelIzinTipiVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div style="text-align:center" class="alert alert-primary" role="alert">
+    Personel İzin Tipi Güncelleyin...
+</div>
+<div class="col-md-6">
+    <form class="form-horizontal" asp-action="Edit">
+        @Html.HiddenFor(x => Model.Id)
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Ad">İzin Tipi</label>
+            <input asp-for="Ad" type="text" class="form-control" id="exampleInputEmail1" placeholder="İzin Tipi" aria-describedby="emailHelp">
+            <span asp-validation-for="Ad"></span>
+            @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        </div>
+        <div class="form-group">
+            <label asp-for="GunSayisi">Gün Sayısı</label>
+            <input asp-for="GunSayisi" type="text" class="form-control" id="exampleInputEmail1" min="0" placeholder="Gün Sayısı" aria-describedby="emailHelp">
+            <span asp-validation-for="GunSayisi"></span>
+            @*<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>*@
+        </div>
+        @*<div class="form-group">
+            <label asp-for="OlusturulmaTarihi">Oluşturulma Tarihi</label>
+            <input asp-for="OlusturulmaTarihi" type="datetime" class="form-control" id="exampleInputEmail1" placeholder="Gün Sayısı" aria-describedby="emailHelp">
+            <span asp-validation-for="OlusturulmaTarihi"></span>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>*@
+        <button type="submit" class="btn btn-primary col-xl-3">Güncelle</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous"></script>
